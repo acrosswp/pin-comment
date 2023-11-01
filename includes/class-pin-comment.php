@@ -229,11 +229,6 @@ final class Pin_Comment {
 		require_once PIN_COMMENT_PLUGIN_PATH . 'admin/class-pin-comment-admin.php';
 
 		/**
-		 * The class responsible for defining all actions that occur in the admin area for update.
-		 */
-		require_once PIN_COMMENT_PLUGIN_PATH . 'admin/update/class-pin-comment-update.php';
-
-		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
@@ -271,15 +266,11 @@ final class Pin_Comment {
 		
 		$plugin_admin = new Pin_Comment_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$plugin_update = new Pin_Comment_Update( $this->get_plugin_name(), $this->get_version() );
-
 		$this->loader->add_action( 'bp_setup_integrations', $plugin_admin, 'register_integration' );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
-		$this->loader->add_action( 'admin_init', $plugin_update, 'setup_updater' );
 
 	}
 
