@@ -38,27 +38,6 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'PIN_COMMENT_FILES', __FILE__ );
 
 /**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-pin-comment-activator.php
- */
-function pin_comment_activate() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pin-comment-activator.php';
-	Pin_Comment_Activator::activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-pin-comment-deactivator.php
- */
-function pin_comment_deactivate() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pin-comment-deactivator.php';
-	Pin_Comment_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'pin_comment_activate' );
-register_deactivation_hook( __FILE__, 'pin_comment_deactivate' );
-
-/**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */

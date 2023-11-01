@@ -56,14 +56,6 @@ class Pin_Comment_Admin {
 	}
 
 	/**
-	 * Add integration class class and files
-	 */
-	public function register_integration() {
-		require_once PIN_COMMENT_PLUGIN_PATH . 'admin/integration/buddyboss-integration.php';
-		buddypress()->integrations['addon'] = new Pin_Comment_BuddyBoss_Integration( $this->plugin_name );
-	}
-
-	/**
 	 * Register the stylesheets for the admin area.
 	 *
 	 * @since    1.0.0
