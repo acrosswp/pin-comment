@@ -43,6 +43,15 @@ class Pin_Comment_Public {
 	private $version;
 
 	/**
+	 * The meta key for the comment
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      string    $pin_comment_key    The meta key for the comment.
+	 */
+	public $pin_comment_key = '_pinned_comment';
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
@@ -53,7 +62,6 @@ class Pin_Comment_Public {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
 	}
 
 	/**
@@ -102,4 +110,116 @@ class Pin_Comment_Public {
 
 	}
 
+	/**
+	 * Filter to add the Pinned Comment on Activity
+	 */
+	public function activity_comment_bubble_buttons( $buttons, $activity_comment_id, $activity_id ) {
+
+		$pinned_action_label = __( 'Pin Comment', 'pin-comment' );
+		$pinned_action_class = 'pin-activity-comment';
+		if( bp_activity_get_meta( $activity_comment_id, $this->pin_comment_key, true ) ) {
+			$pinned_action_class = 'unpin-activity-comment';
+			$pinned_action_label = __( 'Unpin Comment', 'pin-comment' );
+		}
+
+		$buttons['activity_pin'] = array(
+			'id'                => 'activity_pin',
+			'component'         => 'activity',
+			'must_be_logged_in' => true,
+			'button_attr'       => array(
+				'id'            => '',
+				'href'          => '',
+				'class'         => 'button item-button bp-secondary-action ' . $pinned_action_class,
+				'data-bp-nonce' => '',
+			),
+			'link_text'         => sprintf(
+				'<span class="bp-screen-reader-text">%s</span><span class="delete-label">%s</span>',
+				$pinned_action_label,
+				$pinned_action_label
+			),
+		);
+
+		return $buttons;
+	}
+
+	/**
+	 * Show the Pinned Comment first in the Activity Comment Area
+	 */
+	public function get_misc_sql( $misc_sql ) {
+
+		$misc_sql = 'ORDER BY m.meta_value ASC, a.date_recorded ASC';
+
+		return $misc_sql;
+	}
+
+	/**
+	 * Show the Pinned Comment first in the Activity Comment Area
+	 */
+	public function get_join_sql( $from_sql ) {
+
+		$bp = buddypress();
+
+		$from_sql .= " INNER JOIN {$bp->activity->table_name_meta} m ON ( m.activity_id = a.id )";
+
+		return $from_sql;
+	}
+
+	/**
+	 * Show the Pinned Comment first in the Activity Comment Area
+	 */
+	public function get_where_conditions( $where_sql ) {
+
+		$bp = buddypress();
+
+		$where_sql .= " AND ( m.meta_key = '_pinned_comment' )";
+
+		return $where_sql;
+	}
+
+
+	public function admin_init_test() {
+		$args = array(
+			'post_type' => 'post',
+			'post_status' => 'publish',
+			'meta_query' => array(
+				'relation' => 'OR',
+				array(
+					'key' => 'your_meta_key', // Replace with your actual meta key
+					'compare' => 'EXISTS',
+				),
+				array(
+					'key' => 'your_meta_key', // Replace with your actual meta key
+					'compare' => 'NOT EXISTS',
+				),
+			),
+			'orderby' => array(
+				'meta_value' => 'ASC',
+				'title' => 'ASC',
+			),
+		);
+		
+		/**
+		 * 551
+		 * 549
+		 */
+		
+		
+		
+		$the_query = new WP_Query( $args );
+		remove_filter('posts_orderby', 'custom_posts_orderby', 10);
+
+		var_dump( "SDfsdfsfsdfdsfdsf 1" );
+
+		// The Loop.
+		if ( $the_query->have_posts() ) {
+			echo '<ul>';
+			while ( $the_query->have_posts() ) {
+				$the_query->the_post();
+				echo '<li>' . esc_html( get_the_title() ) . '</li>';
+			}
+			echo '</ul>';
+		} else {
+			esc_html_e( 'Sorry, no posts matched your criteria.' );
+		}
+	}
 }

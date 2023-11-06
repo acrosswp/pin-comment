@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b3ec5b3282de2ea31b717ee1c96c873",
+    "content-hash": "3f82b99a1429953591afc2c0c5d00031",
     "packages": [
+        {
+            "name": "acrosswp/acrosswp-plugin-update",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/acrosswp/acrosswp-plugin-update.git",
+                "reference": "99a6b4e49542b28a9df87e760d1c5a04af7396aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/acrosswp/acrosswp-plugin-update/zipball/99a6b4e49542b28a9df87e760d1c5a04af7396aa",
+                "reference": "99a6b4e49542b28a9df87e760d1c5a04af7396aa",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "acrosswp-plugin-update.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "acrosswp",
+                    "email": "contant@acrosswp.com"
+                }
+            ],
+            "description": "Composer to autoload the AcrossWP Plugin Update Class",
+            "homepage": "https://acrosswp.com/",
+            "keywords": [
+                "plugin",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/acrosswp/acrosswp-plugin-update/issues",
+                "source": "https://github.com/acrosswp/acrosswp-plugin-update/tree/main"
+            },
+            "time": "2023-11-06T17:32:53+00:00"
+        },
         {
             "name": "acrosswp/acrosswp-plugin-update-checker-github",
             "version": "dev-main",
@@ -105,6 +148,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "acrosswp/acrosswp-plugin-update": 20,
         "yahnis-elsts/plugin-update-checker": 20,
         "acrosswp/acrosswp-plugin-update-checker-github": 20
     },

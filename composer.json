@@ -9,6 +9,7 @@
         "plugin"
     ],
     "require": {
+        "acrosswp/acrosswp-plugin-update": "dev-main",
         "yahnis-elsts/plugin-update-checker": "dev-master",
         "acrosswp/acrosswp-plugin-update-checker-github": "dev-main"
     },

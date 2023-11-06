@@ -203,12 +203,27 @@ final class Pin_Comment {
 		 */
 		require_once PIN_COMMENT_PLUGIN_PATH . 'includes/dependency/buddyboss.php';
 
-
 		/**
 		 * Check if the class does not exits then only allow the file to add
 		 */
 		if( class_exists( 'AcrossWP_Main_Menu' ) ) {
 			AcrossWP_Main_Menu::instance();
+		}
+
+		/**
+		 * Check if the class does not exits then only allow the file to add
+		 */
+		if( class_exists( 'AcrossWP_Plugin_Update' ) ) {
+
+			/**
+			 * The class responsible for defining all actions that occur in the admin area.
+			 */
+			require_once PIN_COMMENT_PLUGIN_PATH . 'admin/update/class-pin-comment-update.php';
+
+			$plugin_update = new Pin_Comment_Update( $this->get_plugin_name(), $this->get_version() );
+
+			error_log( print_r( "Testing 1", true ) . "\n", 3, WP_CONTENT_DIR . '/debug_new-2.log' );
+			$acrosswp_plugin_update = new AcrossWP_Plugin_Update( $this->get_plugin_name(), $this->get_version() );
 		}
 
 		/**
@@ -233,6 +248,12 @@ final class Pin_Comment {
 		 * side of the site.
 		 */
 		require_once PIN_COMMENT_PLUGIN_PATH . 'public/class-pin-comment-public.php';
+
+		/**
+		 * The class responsible for defining all actions that occur in the public-facing
+		 * side of the site.
+		 */
+		require_once PIN_COMMENT_PLUGIN_PATH . 'public/class-pin-comment-rest-api.php';
 
 		$this->loader = Pin_Comment_Loader::instance();
 
@@ -266,6 +287,16 @@ final class Pin_Comment {
 		
 		$plugin_admin = new Pin_Comment_Admin( $this->get_plugin_name(), $this->get_version() );
 
+		$rest_api = new Pin_Comment_Rest_Controller( $this->get_plugin_name(), $this->get_version() );
+
+		$this->loader->add_action( 'rest_api_init', $rest_api, 'register_routes', 1000 );
+
+		$this->loader->add_action( 'bp_get_default_options', $plugin_admin, 'default_options', 100 );
+
+		$this->loader->add_action( 'plugin_action_links', $plugin_admin, 'modify_plugin_action_links', 10, 2 );
+
+		$this->loader->add_action( 'bp_admin_setting_activity_register_fields', $plugin_admin, 'register_fields', 100 );
+
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -286,6 +317,16 @@ final class Pin_Comment {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+		$this->loader->add_action( 'bb_nouveau_get_activity_comment_bubble_buttons', $plugin_public, 'activity_comment_bubble_buttons',100, 3 );
+
+		$this->loader->add_action( 'bp_activity_comments_get_where_conditions', $plugin_public, 'get_where_conditions',1000 );
+
+		$this->loader->add_action( 'bp_activity_comments_get_join_sql', $plugin_public, 'get_join_sql',1000 );
+
+		$this->loader->add_action( 'bp_activity_comments_get_misc_sql', $plugin_public, 'get_misc_sql',1000 );
+
+		// $this->loader->add_action( 'admin_init', $plugin_public, 'admin_init_test',1000 );
 
 	}
 
@@ -327,6 +368,35 @@ final class Pin_Comment {
 	 */
 	public function get_version() {
 		return $this->version;
+	}
+
+
+	/**
+	 * Check whether activity pinned posts are enabled for post author.
+	 *
+	 * @since BuddyBoss 1.0.0
+	 *
+	 * @param bool $default Optional. Fallback value if not found in the database.
+	 *                      Default: true.
+	 *
+	 * @return bool True    If activity pinned posts are enabled, otherwise false.
+	 */
+	function activity_comment_pinned_post_author( $default = true ) {
+		return (bool) bp_get_option( '_pc_enable_activity_comment_pinned_post_author', $default );
+	}
+
+	/**
+	 * Check whether activity pinned posts are enabled for Group Admin.
+	 *
+	 * @since BuddyBoss 1.0.0
+	 *
+	 * @param bool $default Optional. Fallback value if not found in the database.
+	 *                      Default: true.
+	 *
+	 * @return bool True    If activity pinned posts are enabled, otherwise false.
+	 */
+	function activity_comment_pinned_group_admin( $default = false ) {
+		return (bool) bp_get_option( '_pc_enable_activity_comment_pinned_group_admin', $default );
 	}
 
 }

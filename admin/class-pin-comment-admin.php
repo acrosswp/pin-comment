@@ -121,10 +121,66 @@ class Pin_Comment_Admin {
 		return array_merge(
 			$links,
 			array(
-				'settings'      => '<a href="' . esc_url( bp_get_admin_url( 'admin.php?page=bp-settings' ) ) . '">' . esc_html__( 'Settings', 'pin-comment' ) . '</a>',
+				'settings'      => '<a href="' . esc_url( bp_get_admin_url( 'admin.php?page=bp-settings&tab=bp-activity#pc_activity_comment_setttings' ) ) . '">' . esc_html__( 'Settings', 'pin-comment' ) . '</a>',
 				'about'         => '<a href="' . esc_url( bp_get_admin_url( '?page=acrosswp' ) ) . '">' . esc_html__( 'About', 'pin-comment' ) . '</a>',
 			)
 		);
+	}
+
+	/**
+	 * Add setting
+	 */
+	public function register_fields( $bp_admin_settings_activity ) {
+
+		$bp_admin_settings_activity->add_section( 'pc_activity_comment_setttings', __( 'Pin Comment', 'pin-comment' ) );
+
+		// Allow scopes/tabs.
+		$type['class'] = 'child-no-padding-first';
+		$bp_admin_settings_activity->add_field( '_pc_enable_activity_comment_pinned_post_author', __( 'Pinned Comment', 'pin-comment' ), array( $this, 'activity_comment_pinned_post_author' ), 'intval', $type );
+
+		$type['class'] = 'child-no-padding';
+		$bp_admin_settings_activity->add_field( '_pc_enable_activity_comment_pinned_group_admin', '', array( $this, 'activity_comment_pinned_group_admin' ), 'intval', $type );
+
+	}
+
+	/**
+	 * Allow pinned activity posts.
+	 *
+	 * @since BuddyBoss 1.0.0
+	 */
+	public function activity_comment_pinned_group_admin() {
+		?>
+
+		<input id="_pc_enable_activity_comment_pinned_group_admin" name="_pc_enable_activity_comment_pinned_group_admin" type="checkbox" value="1" <?php checked( Pin_Comment::instance()->activity_comment_pinned_group_admin() ); ?> />
+		<label for="_pc_enable_activity_comment_pinned_group_admin"><?php esc_html_e( 'Allow group owners and moderators to pin comments in posts', 'buddyboss' ); ?></label>
+		<?php
+	}
+
+	/**
+	 * Allow pinned activity posts.
+	 *
+	 * @since BuddyBoss 1.0.0
+	 */
+	public function activity_comment_pinned_post_author() {
+		?>
+
+		<input id="_pc_enable_activity_comment_pinned_post_author" name="_pc_enable_activity_comment_pinned_post_author" type="checkbox" value="1" <?php checked( Pin_Comment::instance()->activity_comment_pinned_post_author() ); ?> />
+		<label for="_pc_enable_activity_comment_pinned_post_author"><?php esc_html_e( 'Allow Post Author to pin comments in posts', 'buddyboss' ); ?></label>
+		<?php
+	}
+
+	/**
+	 * Allow pinned activity posts.
+	 *
+	 * @since BuddyBoss 1.0.0
+	 */
+	public function default_options( $options ) {
+
+		// Enabled activity pinned posts.
+		$options['_pc_enable_activity_comment_pinned_post_author'] = true;
+		$options['_pc_enable_activity_comment_pinned_group_admin'] = false;
+
+		return $options;
 	}
 
 }
