@@ -222,7 +222,6 @@ final class Pin_Comment {
 
 			$plugin_update = new Pin_Comment_Update( $this->get_plugin_name(), $this->get_version() );
 
-			error_log( print_r( "Testing 1", true ) . "\n", 3, WP_CONTENT_DIR . '/debug_new-2.log' );
 			$acrosswp_plugin_update = new AcrossWP_Plugin_Update( $this->get_plugin_name(), $this->get_version() );
 		}
 

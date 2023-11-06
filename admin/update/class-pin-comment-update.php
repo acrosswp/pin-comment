@@ -52,8 +52,6 @@ class Pin_Comment_Update {
 		$this->plugin_name		= $plugin_name;
 		$this->version_compare	= $version;
 
-		error_log( print_r( "Testing 4", true ) . "\n", 3, WP_CONTENT_DIR . '/debug_new-2.log' );
-
 		/**
 		 * Called all the action and filter inside this functions
 		 */
@@ -65,17 +63,33 @@ class Pin_Comment_Update {
 	 */
 	public function hooks() {
 
-		error_log( print_r( "Testing 5", true ) . "\n", 3, WP_CONTENT_DIR . '/debug_new-2.log' );
-		error_log( print_r( 'acrosswp_plugin_update_' . $this->plugin_name, true ) . "\n", 3, WP_CONTENT_DIR . '/debug_new-2.log' );
-		error_log( print_r( "Testing 5.1", true ) . "\n", 3, WP_CONTENT_DIR . '/debug_new-2.log' );
-
 		add_action( 'acrosswp_plugin_update_' . $this->plugin_name, array( $this, 'plugin_update' ) );
 	}
 
 	/**
 	 * Main Plugin Update 
 	 */
-	public function plugin_update() {
-		error_log( print_r( "Testing 10", true ) . "\n", 3, WP_CONTENT_DIR . '/debug_new-2.log' );
+	public function plugin_update( $acrosswp_plugin_update ) {
+
+		/**
+		 * Main Update
+		 */
+		$this->version_1_0_0();
+	}
+
+	/**
+	 * Update to version 1.0.0
+	 */
+	public function version_1_0_0() {
+
+		/**
+		 * Stop the latest version update in DB
+		 */
+		$acrosswp_plugin_update->update_is_running();
+
+		/**
+		 * Allow the latest version update in DB
+		 */
+		$acrosswp_plugin_update->update_is_completed();
 	}
 }
