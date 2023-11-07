@@ -175,4 +175,24 @@ class Pin_Comment_Public {
 
 		return $where_sql;
 	}
+
+	/**
+	 * Comment class inside the activity
+	 */
+	public function activity_comment_css_class( $class ) {
+
+		$activity_comment_id = bp_get_activity_comment_id();
+		if( bp_activity_get_meta( $activity_comment_id, $this->pin_comment_key, true ) ) {
+			$class .= ' _pin_comment';
+		}
+
+		return $class;
+	}
+
+
+	// <div class="bb-pin-action">
+	// 	<span class="bb-pin-action_button" data-balloon-pos="up" data-balloon="Pinned Post">
+	// 		<i class="bb-icon-f bb-icon-thumbtack"></i>
+	// 	</span>
+	// </div>
 }

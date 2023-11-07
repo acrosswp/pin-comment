@@ -325,6 +325,11 @@ final class Pin_Comment {
 
 		$this->loader->add_action( 'bp_activity_comments_get_misc_sql', $plugin_public, 'get_misc_sql',1000 );
 
+		/**
+		 * Add class into the Comment
+		 */
+		$this->loader->add_filter( 'bp_get_activity_comment_css_class', $plugin_public, 'activity_comment_css_class',1000 );
+
 	}
 
 	/**
