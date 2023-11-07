@@ -147,7 +147,7 @@ class Pin_Comment_Public {
 	 */
 	public function get_misc_sql( $misc_sql ) {
 
-		$misc_sql = 'ORDER BY m.meta_value ASC, a.date_recorded ASC';
+		$misc_sql = 'ORDER BY m.meta_value DESC, a.date_recorded ASC';
 
 		return $misc_sql;
 	}
@@ -159,7 +159,7 @@ class Pin_Comment_Public {
 
 		$bp = buddypress();
 
-		$from_sql .= " INNER JOIN {$bp->activity->table_name_meta} m ON ( m.activity_id = a.id )";
+		$from_sql .= " LEFT JOIN {$bp->activity->table_name_meta} m ON ( m.activity_id = a.id )";
 
 		return $from_sql;
 	}
@@ -174,52 +174,5 @@ class Pin_Comment_Public {
 		$where_sql .= " AND ( m.meta_key = '_pinned_comment' )";
 
 		return $where_sql;
-	}
-
-
-	public function admin_init_test() {
-		$args = array(
-			'post_type' => 'post',
-			'post_status' => 'publish',
-			'meta_query' => array(
-				'relation' => 'OR',
-				array(
-					'key' => 'your_meta_key', // Replace with your actual meta key
-					'compare' => 'EXISTS',
-				),
-				array(
-					'key' => 'your_meta_key', // Replace with your actual meta key
-					'compare' => 'NOT EXISTS',
-				),
-			),
-			'orderby' => array(
-				'meta_value' => 'ASC',
-				'title' => 'ASC',
-			),
-		);
-		
-		/**
-		 * 551
-		 * 549
-		 */
-		
-		
-		
-		$the_query = new WP_Query( $args );
-		remove_filter('posts_orderby', 'custom_posts_orderby', 10);
-
-		var_dump( "SDfsdfsfsdfdsfdsf 1" );
-
-		// The Loop.
-		if ( $the_query->have_posts() ) {
-			echo '<ul>';
-			while ( $the_query->have_posts() ) {
-				$the_query->the_post();
-				echo '<li>' . esc_html( get_the_title() ) . '</li>';
-			}
-			echo '</ul>';
-		} else {
-			esc_html_e( 'Sorry, no posts matched your criteria.' );
-		}
 	}
 }

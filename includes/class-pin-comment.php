@@ -325,8 +325,6 @@ final class Pin_Comment {
 
 		$this->loader->add_action( 'bp_activity_comments_get_misc_sql', $plugin_public, 'get_misc_sql',1000 );
 
-		// $this->loader->add_action( 'admin_init', $plugin_public, 'admin_init_test',1000 );
-
 	}
 
 	/**
