@@ -13,10 +13,10 @@
  * @package           Pin_Comment
  *
  * @wordpress-plugin
- * Plugin Name:       Pin Comment
+ * Plugin Name:       Pin Comment for BuddyBoss Platform
  * Plugin URI:        https://acrosswp.com
  * Description:       Pin Comment by AcrossWP
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            AcrossWP
  * Author URI:        https://acrosswp.com
  * License:           GPL-2.0+

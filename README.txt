@@ -5,13 +5,15 @@ Tags: buddyboss, buddyboss-platform, pin-comment, pin, pin-activity
 Requires at least: 4.9.1
 Tested up to: 6.2.2
 Requires PHP: 5.6.20
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Empower BuddyBoss users to highlight and manage comments with ease using the Pin Comment Plugin. Streamline discussions and boost engagement!
 
 == Description ==
+
+https://www.youtube.com/watch?v=kIq63asiPbU
 
 **Introduction:**
 Enhance your BuddyBoss Platform experience with our latest plugin: the Pin Comment Plugin! This powerful addition allows you to effortlessly highlight and manage comments within your community, providing a new level of engagement and control.
@@ -50,7 +52,7 @@ This section describes how to install the plugin and get it working.
 
 Example 1:
 
-https://www.youtube.com/watch?v=AChIt2MUuwQ
+https://www.youtube.com/watch?v=U-w8bygcPHY
 
 Example 2:
 1. Upload the plugin files to the `/wp-content/plugins/pin-comment` directory, or install the plugin through the WordPress plugins screen directly.
