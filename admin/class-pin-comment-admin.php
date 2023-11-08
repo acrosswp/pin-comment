@@ -152,7 +152,7 @@ class Pin_Comment_Admin {
 		?>
 
 		<input id="_pc_enable_activity_comment_pinned_group_admin" name="_pc_enable_activity_comment_pinned_group_admin" type="checkbox" value="1" <?php checked( Pin_Comment::instance()->activity_comment_pinned_group_admin() ); ?> />
-		<label for="_pc_enable_activity_comment_pinned_group_admin"><?php esc_html_e( 'Allow group owners and moderators to pin comments in posts', 'buddyboss' ); ?></label>
+		<label for="_pc_enable_activity_comment_pinned_group_admin"><?php esc_html_e( 'Allow group owners and moderators to pin comments in posts', 'pin-comment' ); ?></label>
 		<?php
 	}
 
@@ -165,7 +165,7 @@ class Pin_Comment_Admin {
 		?>
 
 		<input id="_pc_enable_activity_comment_pinned_post_author" name="_pc_enable_activity_comment_pinned_post_author" type="checkbox" value="1" <?php checked( Pin_Comment::instance()->activity_comment_pinned_post_author() ); ?> />
-		<label for="_pc_enable_activity_comment_pinned_post_author"><?php esc_html_e( 'Allow Post Author to pin comments in posts', 'buddyboss' ); ?></label>
+		<label for="_pc_enable_activity_comment_pinned_post_author"><?php esc_html_e( 'Allow Post Author to pin comments in posts', 'pin-comment' ); ?></label>
 		<?php
 	}
 
