@@ -111,7 +111,8 @@ class Pin_Comment_Update {
 			);
 
 			update_option( $key, $update_running );
-		} else {
+		
+		} elseif( isset( $update_running['current_page'] ) ) {
 			$current_page = $update_running['current_page'];
 			$total_page = $update_running['total_page'];
 			$offset = $current_page * $per_page;
