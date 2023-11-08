@@ -192,6 +192,11 @@ final class Pin_Comment {
 		require_once( PIN_COMMENT_PLUGIN_PATH . 'vendor/autoload.php' );
 
 		/**
+		 * Load functions.php files
+		 */
+		require_once( PIN_COMMENT_PLUGIN_PATH . 'public/functions.php' );
+
+		/**
 		 * The class responsible for loading the dependency main class
 		 * core plugin.
 		 */
@@ -391,7 +396,7 @@ final class Pin_Comment {
 	 * @return bool True    If activity pinned posts are enabled, otherwise false.
 	 */
 	function activity_comment_pinned_post_author( $default = true ) {
-		return (bool) bp_get_option( '_pc_enable_activity_comment_pinned_post_author', $default );
+		return pin_comment_can_post_author_pin_setting( $default );
 	}
 
 	/**
@@ -405,7 +410,7 @@ final class Pin_Comment {
 	 * @return bool True    If activity pinned posts are enabled, otherwise false.
 	 */
 	function activity_comment_pinned_group_admin( $default = false ) {
-		return (bool) bp_get_option( '_pc_enable_activity_comment_pinned_group_admin', $default );
+		return pin_comment_can_group_admin_pin_setting( $default );
 	}
 
 }

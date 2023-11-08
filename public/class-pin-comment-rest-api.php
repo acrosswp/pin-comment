@@ -115,12 +115,12 @@ class Pin_Comment_Rest_Controller extends WP_REST_Controller {
 			)
 		);
 
-        $activity = $this->get_activity_object( $request->get_param( 'id' ) );
+        $activity_comment = $this->get_activity_object( $request->get_param( 'id' ) );
 
 		if ( 
             empty( $activity->id ) 
-            || 'activity_comment' != $activity->type
-            || $activity->item_id != $activity->secondary_item_id
+            || 'activity_comment' != $activity_comment->type
+            || $activity_comment->item_id != $activity_comment->secondary_item_id
         ) {
 			return new WP_Error(
 				'pin_comment_rest_invalid_id',
@@ -131,39 +131,9 @@ class Pin_Comment_Rest_Controller extends WP_REST_Controller {
 			);
 		}
 
-        $current_user_id = get_current_user_id();
-
-        if( $current_user_id ) {
-
-            /**
-             * If user is site admin
-             */
-            if( current_user_can('administrator') ) {
-                return true;
-            }
-
-            /**
-             * if user is the author
-             */
-            if( $current_user_id == $activity->user_id ) {
-                return true;
-            }
-
-            /**
-             * If the user is Group Admin or Moderator
-             */
-            $parent_activity = $this->get_activity_object( $request->get_param( 'id' ) );
-            if ( 
-                'groups' === $parent_activity->component
-                && ! empty( $parent_activity->item_id )
-                && (
-                    groups_is_user_mod( $current_user_id, $parent_activity->item_id )
-                    || groups_is_user_mod( $current_user_id, $parent_activity->item_id )
-                )
-            ) {
-                return true;
-            }
-        }
+        if ( pin_comment_can_user_pin( $activity_comment ) ) {
+			return true;
+		}
 
         return $retval;
     }

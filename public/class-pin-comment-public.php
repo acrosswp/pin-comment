@@ -138,7 +138,10 @@ class Pin_Comment_Public {
 		/**
 		 * Check if this is a parent activity or not
 		 */
-		if ( $current_comment->item_id == $current_comment->secondary_item_id ) {
+		if ( 
+			$current_comment->item_id == $current_comment->secondary_item_id
+			&& pin_comment_can_user_pin( $current_comment )
+		) {
 			$pinned_action_label = __( 'Pin Comment', 'pin-comment' );
 			$pinned_action_class = 'pin-activity-comment main-pin-activity-comment';
 			if( bp_activity_get_meta( $activity_comment_id, $this->pin_comment_key, true ) ) {
@@ -215,13 +218,30 @@ class Pin_Comment_Public {
 	}
 
 	/**
+	 * Add comment meta when comment is added into the DB
+	 */
+	public function comment_meta( $comment_id ) {
+		bp_activity_update_meta( $comment_id, '_pinned_comment', 0 );
+	}
+
+	/**
 	 * Pin Activity Comment Popup
 	 */
 	public function popup_for_pin_comment() {
+
+		/**
+		 * Load popup template into the Activity Area
+		 */
 		add_action( 'bp_after_directory_activity_list', array( $this, 'bb_activity_comment_pinpost_modal' ) );
 		add_action( 'bp_after_member_activity_content', array( $this, 'bb_activity_comment_pinpost_modal' ) );
 		add_action( 'bp_after_group_activity_content', array( $this, 'bb_activity_comment_pinpost_modal' ) );
 		add_action( 'bp_after_single_activity_content', array( $this, 'bb_activity_comment_pinpost_modal' ) );
+
+		/**
+		 * Add comment on comment added
+		 */
+		add_action( 'bp_activity_comment_posted', array( $this, 'comment_meta' ), 1000, 1 );
+		add_action( 'bp_activity_comment_posted_notification_skipped', array( $this, 'comment_meta' ), 1000, 1 );
 	}
 
 
