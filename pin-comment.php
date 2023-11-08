@@ -16,7 +16,7 @@
  * Plugin Name:       Pin Comment
  * Plugin URI:        https://acrosswp.com
  * Description:       Pin Comment by AcrossWP
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            AcrossWP
  * Author URI:        https://acrosswp.com
  * License:           GPL-2.0+

@@ -12,6 +12,7 @@ li._pin_comment .bb-activity-more-options-wrap:before {
   text-align: center;
   font-size: 22px;
   color: #939597;
+  font-weight: 300;
 }
 
 a.main-pin-activity-comment:before {
