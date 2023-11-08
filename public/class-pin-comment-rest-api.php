@@ -118,7 +118,7 @@ class Pin_Comment_Rest_Controller extends WP_REST_Controller {
         $activity_comment = $this->get_activity_object( $request->get_param( 'id' ) );
 
 		if ( 
-            empty( $activity->id ) 
+            empty( $activity_comment->id ) 
             || 'activity_comment' != $activity_comment->type
             || $activity_comment->item_id != $activity_comment->secondary_item_id
         ) {
@@ -145,12 +145,12 @@ class Pin_Comment_Rest_Controller extends WP_REST_Controller {
 	 * @param WP_REST_Request $request Current request.
 	 */
 	public function pinned( $request ) {
-		$activity_id   = $request->get_param( 'id' );
-        bp_activity_update_meta( $activity_id, '_pinned_comment', 1 );
+		$activity_comment_id   = $request->get_param( 'id' );
+        bp_activity_update_meta( $activity_comment_id, '_pinned_comment', 1 );
 
         $retval = array(
 			'feedback' => __( 'Comment is Successfully pinned', 'pin-comment' ),
-			'activity_id' => $activity_id,
+			'activity_comment_id' => $activity_comment_id,
 		);
 
 		return rest_ensure_response( $retval );
@@ -162,12 +162,12 @@ class Pin_Comment_Rest_Controller extends WP_REST_Controller {
 	 * @param WP_REST_Request $request Current request.
 	 */
 	public function unpinned( $request ) {
-		$activity_id   = $request->get_param( 'id' );
-        bp_activity_update_meta( $activity_id, '_pinned_comment', 0 );
+		$activity_comment_id   = $request->get_param( 'id' );
+        bp_activity_update_meta( $activity_comment_id, '_pinned_comment', 0 );
 
         $retval = array(
 			'feedback' => __( 'Comment is Successfully unpinned', 'pin-comment' ),
-			'activity_id' => $activity_id,
+			'activity_id' => $activity_comment_id,
 		);
 
 		return rest_ensure_response( $retval );
