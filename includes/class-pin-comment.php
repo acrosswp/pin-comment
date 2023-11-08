@@ -243,6 +243,12 @@ final class Pin_Comment {
 		require_once PIN_COMMENT_PLUGIN_PATH . 'includes/class-pin-comment-i18n.php';
 
 		/**
+		 * The file is reponsiable of updating the plugins zip
+		 * of the plugin.
+		 */
+		require_once PIN_COMMENT_PLUGIN_PATH . 'admin/licenses-update/plugin-update-checker/main.php';
+
+		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once PIN_COMMENT_PLUGIN_PATH . 'admin/class-pin-comment-admin.php';
@@ -290,6 +296,10 @@ final class Pin_Comment {
 	private function define_admin_hooks() {
 		
 		$plugin_admin = new Pin_Comment_Admin( $this->get_plugin_name(), $this->get_version() );
+
+		if( class_exists( 'AcrossWP_Plugin_Update_Checker_Github' ) ) {
+			new AcrossWP_Plugin_Update_Checker_Github();
+		}
 
 		$rest_api = new Pin_Comment_Rest_Controller( $this->get_plugin_name(), $this->get_version() );
 
