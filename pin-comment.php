@@ -38,6 +38,22 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'PIN_COMMENT_FILES', __FILE__ );
 
 /**
+ * The code that runs during plugin activation.
+ * This action is documented in includes/class-wordpress-plugin-boilerplate-activator.php
+ */
+function pin_comment_activate() {
+
+	/**
+	 * Rest the plugin update on plugin activations
+	 */
+	update_option( '_pinned_comment_update_1_0_0', false );
+	update_option( '_pin-comment_updating', false );
+	update_option( '_pin-comment_db_version', '0.0.1' );
+}
+
+register_activation_hook( __FILE__, 'pin_comment_activate' );
+
+/**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
