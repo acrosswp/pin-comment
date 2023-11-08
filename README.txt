@@ -65,6 +65,9 @@ Yes.
 
 == Changelog ==
 
+= 1.0.2 =
+* Update Readme.txt file
+
 = 1.0.1 =
 * Fix Plugin Update 
 * Add styling for BB theme support
