@@ -6,7 +6,7 @@ jQuery( document ).ready( function($) {
 
 		var message_modal   = $( '#bb-pin-comment-confirmation-modal' );
 
-        var parent_li = $(this).parents( "li" )
+        var parent_li = $(this).closest( "li" )
 
         var activity_id = parent_li.attr( "data-bp-activity-comment-id" );
         var url = pin_comment_object.unpin_url;
@@ -55,7 +55,7 @@ jQuery( document ).ready( function($) {
                  */
                 parent_li.removeClass( '_pin_comment' );
                 parent_li.removeClass( '_unpin_comment' );
-                target.addClass( parent_class );
+                parent_li.addClass( parent_class );
             }
         });
     });

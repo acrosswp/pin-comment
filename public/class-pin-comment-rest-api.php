@@ -149,7 +149,7 @@ class Pin_Comment_Rest_Controller extends WP_REST_Controller {
         bp_activity_update_meta( $activity_comment_id, '_pinned_comment', 1 );
 
         $retval = array(
-			'feedback' => __( 'Comment is Successfully pinned', 'pin-comment' ),
+			'feedback' => __( 'Comment is successfully pinned', 'pin-comment' ),
 			'activity_comment_id' => $activity_comment_id,
 		);
 
@@ -166,7 +166,7 @@ class Pin_Comment_Rest_Controller extends WP_REST_Controller {
         bp_activity_update_meta( $activity_comment_id, '_pinned_comment', 0 );
 
         $retval = array(
-			'feedback' => __( 'Comment is Successfully unpinned', 'pin-comment' ),
+			'feedback' => __( 'Comment is successfully unpinned', 'pin-comment' ),
 			'activity_id' => $activity_comment_id,
 		);
 
