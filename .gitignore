@@ -60,3 +60,5 @@ contributors.md
 
 # Language files
 i18n/languages/woocommerce.pot
+
+/assets/dist/css/frontend-style.\*.css

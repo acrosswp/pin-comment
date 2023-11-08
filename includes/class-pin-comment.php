@@ -313,9 +313,16 @@ final class Pin_Comment {
 
 		$plugin_public = new Pin_Comment_Public( $this->get_plugin_name(), $this->get_version() );
 
+		$this->loader->add_action( 'bp_init', $plugin_public, 'popup_for_pin_comment' );
+
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+		/**
+		 * Load the localize Script
+		 */
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'wp_localize_script' );
 
 		$this->loader->add_action( 'bb_nouveau_get_activity_comment_bubble_buttons', $plugin_public, 'activity_comment_bubble_buttons',100, 3 );
 

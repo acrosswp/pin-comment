@@ -111,33 +111,58 @@ class Pin_Comment_Public {
 	}
 
 	/**
+	 * Register the Localize Script for the public-facing side of the site.
+	 *
+	 * @since    1.0.0
+	 */
+	public function wp_localize_script() {
+
+		wp_localize_script( $this->plugin_name, 'pin_comment_object',
+			array( 
+				'pin_text' => __( 'Pin Comment', 'pin-comment' ),
+				'unpin_text' => __( 'Unpin Comment', 'pin-comment' ),
+				'pin_url' => rest_url( 'pin-comment/v1/pin/' ),
+				'unpin_url' => rest_url( 'pin-comment/v1/unpin/' ),
+				'nonce' => wp_create_nonce( "wp_rest" ),
+			)
+		);
+	}
+
+	/**
 	 * Filter to add the Pinned Comment on Activity
 	 */
 	public function activity_comment_bubble_buttons( $buttons, $activity_comment_id, $activity_id ) {
 
-		$pinned_action_label = __( 'Pin Comment', 'pin-comment' );
-		$pinned_action_class = 'pin-activity-comment';
-		if( bp_activity_get_meta( $activity_comment_id, $this->pin_comment_key, true ) ) {
-			$pinned_action_class = 'unpin-activity-comment';
-			$pinned_action_label = __( 'Unpin Comment', 'pin-comment' );
-		}
+		$current_comment = bp_activity_current_comment();
 
-		$buttons['activity_pin'] = array(
-			'id'                => 'activity_pin',
-			'component'         => 'activity',
-			'must_be_logged_in' => true,
-			'button_attr'       => array(
-				'id'            => '',
-				'href'          => '',
-				'class'         => 'button item-button bp-secondary-action ' . $pinned_action_class,
-				'data-bp-nonce' => '',
-			),
-			'link_text'         => sprintf(
-				'<span class="bp-screen-reader-text">%s</span><span class="delete-label">%s</span>',
-				$pinned_action_label,
-				$pinned_action_label
-			),
-		);
+		/**
+		 * Check if this is a parent activity or not
+		 */
+		if ( $current_comment->item_id == $current_comment->secondary_item_id ) {
+			$pinned_action_label = __( 'Pin Comment', 'pin-comment' );
+			$pinned_action_class = 'pin-activity-comment main-pin-activity-comment';
+			if( bp_activity_get_meta( $activity_comment_id, $this->pin_comment_key, true ) ) {
+				$pinned_action_class = 'unpin-activity-comment main-pin-activity-comment';
+				$pinned_action_label = __( 'Unpin Comment', 'pin-comment' );
+			}
+	
+			$buttons['activity_pin'] = array(
+				'id'                => 'activity_pin',
+				'component'         => 'activity',
+				'must_be_logged_in' => true,
+				'button_attr'       => array(
+					'id'            => '',
+					'href'          => '',
+					'class'         => 'button item-button bp-secondary-action ' . $pinned_action_class,
+					'data-bp-nonce' => '',
+				),
+				'link_text'         => sprintf(
+					'<span class="bp-screen-reader-text">%s</span><span class="delete-label">%s</span>',
+					$pinned_action_label,
+					$pinned_action_label
+				),
+			);
+		}
 
 		return $buttons;
 	}
@@ -189,10 +214,40 @@ class Pin_Comment_Public {
 		return $class;
 	}
 
+	/**
+	 * Pin Activity Comment Popup
+	 */
+	public function popup_for_pin_comment() {
+		add_action( 'bp_after_directory_activity_list', array( $this, 'bb_activity_comment_pinpost_modal' ) );
+		add_action( 'bp_after_member_activity_content', array( $this, 'bb_activity_comment_pinpost_modal' ) );
+		add_action( 'bp_after_group_activity_content', array( $this, 'bb_activity_comment_pinpost_modal' ) );
+		add_action( 'bp_after_single_activity_content', array( $this, 'bb_activity_comment_pinpost_modal' ) );
+	}
 
-	// <div class="bb-pin-action">
-	// 	<span class="bb-pin-action_button" data-balloon-pos="up" data-balloon="Pinned Post">
-	// 		<i class="bb-icon-f bb-icon-thumbtack"></i>
-	// 	</span>
-	// </div>
+
+	/**
+	 * Run the Pinn Post comment
+	 */
+	public function bb_activity_comment_pinpost_modal() {
+		?>
+		<div id="bb-pin-comment-confirmation-modal" class="bb-pin-comment-confirmation-modal bb-action-popup" style="display: none;">
+			<transition name="modal">
+				<div class="modal-mask bb-white bbm-model-wrap bbm-uploader-model-wrap">
+					<div class="modal-wrapper">
+						<div class="modal-container">
+							<header class="bb-model-header">
+								<h4><?php esc_html_e( 'Pin Activty Comment', 'pinn-comment' ); ?></h4>
+								<a class="bb-close-action-popup bb-model-close-button" id="bp-confirmation-model-close" href="#">
+									<span class="bb-icon-l bb-icon-times"></span>
+								</a>
+							</header>
+							<div class="bb-action-popup-content">
+							</div>
+						</div>
+					</div>
+				</div>
+			</transition>
+		</div>
+		<?php
+	}
 }

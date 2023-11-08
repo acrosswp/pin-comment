@@ -132,6 +132,7 @@ class Pin_Comment_Rest_Controller extends WP_REST_Controller {
 		}
 
         $current_user_id = get_current_user_id();
+
         if( $current_user_id ) {
 
             /**
