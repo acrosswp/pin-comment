@@ -197,18 +197,6 @@ final class Pin_Comment {
 		require_once( PIN_COMMENT_PLUGIN_PATH . 'public/functions.php' );
 
 		/**
-		 * The class responsible for loading the dependency main class
-		 * core plugin.
-		 */
-		require_once PIN_COMMENT_PLUGIN_PATH . 'includes/dependency/class-dependency.php';
-
-		/**
-		 * The class responsible for loading the dependency main class
-		 * core plugin.
-		 */
-		require_once PIN_COMMENT_PLUGIN_PATH . 'includes/dependency/buddyboss.php';
-
-		/**
 		 * Check if the class does not exits then only allow the file to add
 		 */
 		if( class_exists( 'AcrossWP_Main_Menu' ) ) {
@@ -299,6 +287,10 @@ final class Pin_Comment {
 
 		if( class_exists( 'AcrossWP_Plugin_Update_Checker_Github' ) ) {
 			new AcrossWP_Plugin_Update_Checker_Github();
+		}
+
+		if ( class_exists( 'AcrossWP_BuddyBoss_Platform_Dependency' ) ) {
+			new AcrossWP_BuddyBoss_Platform_Dependency( $this->get_plugin_name(), PIN_COMMENT_FILES );
 		}
 
 		$rest_api = new Pin_Comment_Rest_Controller( $this->get_plugin_name(), $this->get_version() );
