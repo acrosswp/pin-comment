@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Pin Comment for BuddyBoss Platform
- * Plugin URI:        https://acrosswp.com
+ * Plugin URI:        https://acrosswp.com/downloads/pin-comment/
  * Description:       Pin Comment by AcrossWP
  * Version:           1.0.2
  * Author:            AcrossWP
