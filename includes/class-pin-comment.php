@@ -191,6 +191,10 @@ final class Pin_Comment {
 		 */
 		require_once( PIN_COMMENT_PLUGIN_PATH . 'vendor/autoload.php' );
 
+		if ( class_exists( 'AcrossWP_BuddyBoss_Platform_Dependency' ) ) {
+			new AcrossWP_BuddyBoss_Platform_Dependency( $this->get_plugin_name(), PIN_COMMENT_FILES );
+		}
+
 		/**
 		 * Load functions.php files
 		 */
@@ -287,10 +291,6 @@ final class Pin_Comment {
 
 		if( class_exists( 'AcrossWP_Plugin_Update_Checker_Github' ) ) {
 			new AcrossWP_Plugin_Update_Checker_Github();
-		}
-
-		if ( class_exists( 'AcrossWP_BuddyBoss_Platform_Dependency' ) ) {
-			new AcrossWP_BuddyBoss_Platform_Dependency( $this->get_plugin_name(), PIN_COMMENT_FILES );
 		}
 
 		$rest_api = new Pin_Comment_Rest_Controller( $this->get_plugin_name(), $this->get_version() );
