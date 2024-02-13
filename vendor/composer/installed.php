@@ -3,7 +3,7 @@
         'name' => 'acrosswp/pin-comment',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '9084659b249e726be43a360f2715d0a21b217fab',
+        'reference' => 'f84bce1c30abffe9348c88d5781c1ac28745e72b',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'acrosswp/acrosswp-buddyboss-dependency' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '41584029327a20bd72d96c39f30cf1352c534fa2',
+            'reference' => 'd5769380f172026ccdf2eda41748be8950b24258',
             'type' => 'library',
             'install_path' => __DIR__ . '/../acrosswp/acrosswp-buddyboss-dependency',
             'aliases' => array(
@@ -24,7 +24,7 @@
         'acrosswp/acrosswp-dependency' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'ab54a20711f398340cfc5620533d8bd1a36178e6',
+            'reference' => '11c2cd9cfa097508d06b3b4718811107917ff2be',
             'type' => 'library',
             'install_path' => __DIR__ . '/../acrosswp/acrosswp-dependency',
             'aliases' => array(
@@ -35,7 +35,7 @@
         'acrosswp/acrosswp-plugin-update' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '863fd3615b2654914b2d174d4ded8cda700181a8',
+            'reference' => 'b56434d072059bf3ea5949e5148602c1103b4575',
             'type' => 'library',
             'install_path' => __DIR__ . '/../acrosswp/acrosswp-plugin-update',
             'aliases' => array(
@@ -46,7 +46,7 @@
         'acrosswp/acrosswp-plugin-update-checker-github' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '8df5554adf40b5d5f54787b5315fbeee1b715ed7',
+            'reference' => '43933bdd6a4e46ce41d3b9427db4586f2d4ab39f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../acrosswp/acrosswp-plugin-update-checker-github',
             'aliases' => array(
@@ -57,7 +57,7 @@
         'acrosswp/pin-comment' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '9084659b249e726be43a360f2715d0a21b217fab',
+            'reference' => 'f84bce1c30abffe9348c88d5781c1ac28745e72b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -66,7 +66,7 @@
         'yahnis-elsts/plugin-update-checker' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '0b6bd7cd3286688ab680201aa6a7d8572c51ae1f',
+            'reference' => 'a1445bb8dcfd88108d3b681076f89f89cfccd231',
             'type' => 'library',
             'install_path' => __DIR__ . '/../yahnis-elsts/plugin-update-checker',
             'aliases' => array(

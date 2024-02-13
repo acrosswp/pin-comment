@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/acrosswp/acrosswp-buddyboss-dependency.git",
-                "reference": "41584029327a20bd72d96c39f30cf1352c534fa2"
+                "reference": "d5769380f172026ccdf2eda41748be8950b24258"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/acrosswp/acrosswp-buddyboss-dependency/zipball/41584029327a20bd72d96c39f30cf1352c534fa2",
-                "reference": "41584029327a20bd72d96c39f30cf1352c534fa2",
+                "url": "https://api.github.com/repos/acrosswp/acrosswp-buddyboss-dependency/zipball/d5769380f172026ccdf2eda41748be8950b24258",
+                "reference": "d5769380f172026ccdf2eda41748be8950b24258",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 "issues": "https://github.com/acrosswp/acrosswp-buddyboss-dependency/issues",
                 "source": "https://github.com/acrosswp/acrosswp-buddyboss-dependency/tree/main"
             },
-            "time": "2023-11-09T09:11:27+00:00"
+            "time": "2023-11-12T19:55:53+00:00"
         },
         {
             "name": "acrosswp/acrosswp-dependency",
@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/acrosswp/acrosswp-dependency.git",
-                "reference": "ab54a20711f398340cfc5620533d8bd1a36178e6"
+                "reference": "11c2cd9cfa097508d06b3b4718811107917ff2be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/acrosswp/acrosswp-dependency/zipball/ab54a20711f398340cfc5620533d8bd1a36178e6",
-                "reference": "ab54a20711f398340cfc5620533d8bd1a36178e6",
+                "url": "https://api.github.com/repos/acrosswp/acrosswp-dependency/zipball/11c2cd9cfa097508d06b3b4718811107917ff2be",
+                "reference": "11c2cd9cfa097508d06b3b4718811107917ff2be",
                 "shasum": ""
             },
             "default-branch": true,
@@ -93,7 +93,7 @@
                 "issues": "https://github.com/acrosswp/acrosswp-dependency/issues",
                 "source": "https://github.com/acrosswp/acrosswp-dependency/tree/main"
             },
-            "time": "2023-11-09T09:07:02+00:00"
+            "time": "2023-11-12T21:14:31+00:00"
         },
         {
             "name": "acrosswp/acrosswp-plugin-update",
@@ -101,12 +101,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/acrosswp/acrosswp-plugin-update.git",
-                "reference": "863fd3615b2654914b2d174d4ded8cda700181a8"
+                "reference": "b56434d072059bf3ea5949e5148602c1103b4575"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/acrosswp/acrosswp-plugin-update/zipball/863fd3615b2654914b2d174d4ded8cda700181a8",
-                "reference": "863fd3615b2654914b2d174d4ded8cda700181a8",
+                "url": "https://api.github.com/repos/acrosswp/acrosswp-plugin-update/zipball/b56434d072059bf3ea5949e5148602c1103b4575",
+                "reference": "b56434d072059bf3ea5949e5148602c1103b4575",
                 "shasum": ""
             },
             "require": {
@@ -139,7 +139,7 @@
                 "issues": "https://github.com/acrosswp/acrosswp-plugin-update/issues",
                 "source": "https://github.com/acrosswp/acrosswp-plugin-update/tree/main"
             },
-            "time": "2023-11-09T09:17:18+00:00"
+            "time": "2023-11-11T11:10:51+00:00"
         },
         {
             "name": "acrosswp/acrosswp-plugin-update-checker-github",
@@ -147,13 +147,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/acrosswp/acrosswp-plugin-update-checker-github.git",
-                "reference": "8df5554adf40b5d5f54787b5315fbeee1b715ed7"
+                "reference": "43933bdd6a4e46ce41d3b9427db4586f2d4ab39f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/acrosswp/acrosswp-plugin-update-checker-github/zipball/8df5554adf40b5d5f54787b5315fbeee1b715ed7",
-                "reference": "8df5554adf40b5d5f54787b5315fbeee1b715ed7",
+                "url": "https://api.github.com/repos/acrosswp/acrosswp-plugin-update-checker-github/zipball/43933bdd6a4e46ce41d3b9427db4586f2d4ab39f",
+                "reference": "43933bdd6a4e46ce41d3b9427db4586f2d4ab39f",
                 "shasum": ""
+            },
+            "require": {
+                "yahnis-elsts/plugin-update-checker": "dev-master"
             },
             "default-branch": true,
             "type": "library",
@@ -182,7 +185,7 @@
                 "issues": "https://github.com/acrosswp/acrosswp-plugin-update-checker-github/issues",
                 "source": "https://github.com/acrosswp/acrosswp-plugin-update-checker-github/tree/main"
             },
-            "time": "2023-10-18T16:13:11+00:00"
+            "time": "2023-11-30T07:35:22+00:00"
         },
         {
             "name": "yahnis-elsts/plugin-update-checker",
@@ -190,12 +193,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/YahnisElsts/plugin-update-checker.git",
-                "reference": "0b6bd7cd3286688ab680201aa6a7d8572c51ae1f"
+                "reference": "a1445bb8dcfd88108d3b681076f89f89cfccd231"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/0b6bd7cd3286688ab680201aa6a7d8572c51ae1f",
-                "reference": "0b6bd7cd3286688ab680201aa6a7d8572c51ae1f",
+                "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/a1445bb8dcfd88108d3b681076f89f89cfccd231",
+                "reference": "a1445bb8dcfd88108d3b681076f89f89cfccd231",
                 "shasum": ""
             },
             "require": {
@@ -231,9 +234,9 @@
             ],
             "support": {
                 "issues": "https://github.com/YahnisElsts/plugin-update-checker/issues",
-                "source": "https://github.com/YahnisElsts/plugin-update-checker/tree/v5.3"
+                "source": "https://github.com/YahnisElsts/plugin-update-checker/tree/master"
             },
-            "time": "2023-11-09T08:34:00+00:00"
+            "time": "2024-02-02T14:07:07+00:00"
         }
     ],
     "packages-dev": [],
