@@ -11,7 +11,7 @@ class ComposerStaticInit3d8045607f0036d8c234a09d5feb1958
         'ba3e6311190fef6b803d614907261c88' => __DIR__ . '/..' . '/acrosswp/acrosswp-dependency/acrosswp-dependency.php',
         '3df4360102c81a53e670d4e86766fc4d' => __DIR__ . '/..' . '/acrosswp/acrosswp-buddyboss-dependency/acrosswp-buddyboss-dependency.php',
         '93f9e6313381cd4cd1fbe0d54257582d' => __DIR__ . '/..' . '/acrosswp/acrosswp-plugin-update/acrosswp-plugin-update.php',
-        'b808676c575d8cc3a144a9eb5971e0d9' => __DIR__ . '/..' . '/acrosswp/acrosswp-plugin-update-checker-github/updater.php',
+        'b349d7d60283eaf7ede54e91833ccdc3' => __DIR__ . '/..' . '/acrosswp/acrosswp-plugin-update-checker-github/acrosswp-plugin-update-checker-github.php',
     );
 
     public static $classMap = array (

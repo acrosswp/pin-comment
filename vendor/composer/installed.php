@@ -3,7 +3,7 @@
         'name' => 'acrosswp/pin-comment',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f84bce1c30abffe9348c88d5781c1ac28745e72b',
+        'reference' => '698ccf63ae7c742b6ff7c55b350f9fbeecdf4538',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -46,7 +46,7 @@
         'acrosswp/acrosswp-plugin-update-checker-github' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '43933bdd6a4e46ce41d3b9427db4586f2d4ab39f',
+            'reference' => '69567a282ebdb3d35964c3987d67dfde687331b4',
             'type' => 'library',
             'install_path' => __DIR__ . '/../acrosswp/acrosswp-plugin-update-checker-github',
             'aliases' => array(
@@ -57,7 +57,7 @@
         'acrosswp/pin-comment' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f84bce1c30abffe9348c88d5781c1ac28745e72b',
+            'reference' => '698ccf63ae7c742b6ff7c55b350f9fbeecdf4538',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

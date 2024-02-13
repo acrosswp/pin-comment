@@ -147,12 +147,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/acrosswp/acrosswp-plugin-update-checker-github.git",
-                "reference": "43933bdd6a4e46ce41d3b9427db4586f2d4ab39f"
+                "reference": "69567a282ebdb3d35964c3987d67dfde687331b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/acrosswp/acrosswp-plugin-update-checker-github/zipball/43933bdd6a4e46ce41d3b9427db4586f2d4ab39f",
-                "reference": "43933bdd6a4e46ce41d3b9427db4586f2d4ab39f",
+                "url": "https://api.github.com/repos/acrosswp/acrosswp-plugin-update-checker-github/zipball/69567a282ebdb3d35964c3987d67dfde687331b4",
+                "reference": "69567a282ebdb3d35964c3987d67dfde687331b4",
                 "shasum": ""
             },
             "require": {
@@ -162,7 +162,7 @@
             "type": "library",
             "autoload": {
                 "files": [
-                    "updater.php"
+                    "acrosswp-plugin-update-checker-github.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -185,7 +185,7 @@
                 "issues": "https://github.com/acrosswp/acrosswp-plugin-update-checker-github/issues",
                 "source": "https://github.com/acrosswp/acrosswp-plugin-update-checker-github/tree/main"
             },
-            "time": "2023-11-30T07:35:22+00:00"
+            "time": "2024-02-13T14:20:54+00:00"
         },
         {
             "name": "yahnis-elsts/plugin-update-checker",

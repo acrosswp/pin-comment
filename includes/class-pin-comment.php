@@ -78,6 +78,8 @@ final class Pin_Comment {
 	 */
 	public function __construct() {
 
+		$this->plugin_name = 'pin-comment';
+
 		$this->define_constants();
 
 		if ( defined( 'PIN_COMMENT_VERSION' ) ) {
@@ -85,8 +87,6 @@ final class Pin_Comment {
 		} else {
 			$this->version = '1.0.0';
 		}
-
-		$this->plugin_name = 'pin-comment';
 
 		$this->load_dependencies();
 
@@ -290,7 +290,7 @@ final class Pin_Comment {
 		$plugin_admin = new Pin_Comment_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		if( class_exists( 'AcrossWP_Plugin_Update_Checker_Github' ) ) {
-			new AcrossWP_Plugin_Update_Checker_Github();
+			AcrossWP_Plugin_Update_Checker_Github::instance();;
 		}
 
 		$rest_api = new Pin_Comment_Rest_Controller( $this->get_plugin_name(), $this->get_version() );

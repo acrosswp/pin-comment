@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit;
  */
 function pin_comment_plugins_update_checker_github( $packages ) {
 
-    $packages[1000] = array(
+    $packages[999] = array(
         'repo' 		        => 'https://github.com/acrosswp/pin-comment',
         'file_path' 		=> PIN_COMMENT_FILES,
         'plugin_name_slug'	=> PIN_COMMENT_PLUGIN_NAME_SLUG,
