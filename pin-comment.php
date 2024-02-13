@@ -16,7 +16,7 @@
  * Plugin Name:       Pin Comment for BuddyBoss Platform
  * Plugin URI:        https://acrosswp.com/downloads/pin-comment/
  * Description:       Allow Post Author and Site admin to Pin Comment inside the Activity Area of BuddyBoss Platform
- * Version:           1.0.3
+ * Version:           1.0.1
  * Author:            AcrossWP
  * Author URI:        https://acrosswp.com
  * License:           GPL-2.0+
