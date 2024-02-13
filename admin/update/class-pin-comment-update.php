@@ -128,7 +128,7 @@ class Pin_Comment_Update {
 
 			$results = $wpdb->get_results( 
 				$wpdb->prepare( 
-					"SELECT id FROM {$activity_table_name} WHERE `type` = %s ORDER BY `id` DESC LIMIT %s OFFSET %d", 
+					"SELECT id FROM {$activity_table_name} WHERE `type` = %s ORDER BY `id` DESC LIMIT %d OFFSET %d", 
 					'activity_comment', 
 					$per_page, 
 					$offset 
