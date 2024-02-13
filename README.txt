@@ -1,11 +1,11 @@
 === Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
+Contributors: acrosswp, raftaar1191
 Donate link: https://acrosswp.com/downloads/pin-comment/
-Tags: buddyboss, buddyboss-platform, pin-comment, pin, pin-activity
-Requires at least: 4.9.1
-Tested up to: 6.2.2
+Tags: pin-comment, pin, pin-activity, buddyboss-platform-plugins, buddyboss-platform
+Requires at least: 6.0
+Tested up to: 6.4.3
 Requires PHP: 5.6.20
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

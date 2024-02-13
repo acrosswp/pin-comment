@@ -98,7 +98,7 @@ class Pin_Comment_Update {
 
 		$update_running = get_option( $key, false );
 		if ( empty( $update_running ) ) {
-			$results = $wpdb->get_results( "SELECT id FROM $activity_table_name WHERE `type` = 'activity_comment'", ARRAY_N );
+			$results = $wpdb->get_results( $wpdb->prepare( "SELECT id FROM %s WHERE `type` = 'activity_comment'", $activity_table_name ), ARRAY_N );
 			$count_result = count( $results );
 			
 			$total_page = $count_result <= $per_page ? 1 : ceil( $count_result/$per_page );
@@ -118,7 +118,7 @@ class Pin_Comment_Update {
 			$offset = $current_page * $per_page;
 			$current_page++;
 
-			$results = $wpdb->get_results( "SELECT id FROM $activity_table_name WHERE `type` = 'activity_comment' ORDER BY `id` DESC LIMIT $per_page OFFSET $offset", ARRAY_N );
+			$results = $wpdb->get_results( $wpdb->prepare( "SELECT id FROM %s WHERE `type` = 'activity_comment' ORDER BY `id` DESC LIMIT %s OFFSET %d", $activity_table_name, $per_page, $offset ), ARRAY_N );
 
 			/**
 			 * Check if this is empty or not
