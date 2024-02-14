@@ -9,6 +9,10 @@ package-lock.json
 README.md
 webpack-config.js
 .travis.yml
+webpack.config.js
+composer.lock
+composer.json
+pnpm-lock.yaml
 
 /assets/dist/css/frontend-style.\*.css
 
